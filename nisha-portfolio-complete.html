@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nisha Kousar | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ---------- Colors aur fonts (yahan se rang badal sakti hain) ---------- */
+:root {
+  --bg: #120a0d;
+  --surface: #2a0d17;
+  --ink: #f3dde2;
+  --muted: #c79ca8;
+  --line: #5c1a2e;
+  --accent: #a3213f;
+  --accent-ink: #fff0f3;
+  --gold: #f0b44a;
+  --head: 'Bricolage Grotesque', 'Trebuchet MS', sans-serif;
+  --body: 'Figtree', 'Segoe UI', Arial, sans-serif;
+}
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.65; font-size: 17px; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 22px; }
+
+/* ---------- Navigation ---------- */
+nav { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 58px; flex-wrap: wrap; }
+.logo { font-family: var(--head); font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+nav ul { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+nav li a { display: block; padding: 8px 14px; border-radius: 99px; text-decoration: none; font-weight: 600; font-size: .95rem; color: var(--muted); }
+nav li a:hover { background: var(--surface); color: var(--ink); }
+nav li a.active { background: var(--accent); color: var(--accent-ink); }
+
+/* ---------- Home ---------- */
+.hero { padding: 72px 0 90px; }
+.hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+.hello { margin: 0 0 10px; color: var(--gold); font-weight: 600; }
+.hero h1 { font-family: var(--head); font-weight: 800; font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.02; margin: 0 0 18px; letter-spacing: -.02em; }
+.hero .role { font-size: 1.15rem; color: var(--muted); max-width: 36ch; margin: 0 0 30px; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-block; padding: 13px 26px; border-radius: 99px; font: inherit; font-weight: 600; text-decoration: none; border: 2px solid var(--accent); cursor: pointer; }
+.btn.main { background: var(--accent); color: var(--accent-ink); }
+.btn.alt { color: var(--ink); background: transparent; }
+.btn:hover { transform: translateY(-2px); }
+
+/* Camera lens (sirf CSS se) */
+.lens { width: min(100%, 340px); aspect-ratio: 1; margin: 0 auto; border-radius: 50%; position: relative;
+  background: radial-gradient(circle at 50% 50%, var(--ink) 0 22%, transparent 22.5%),
+    repeating-radial-gradient(circle at 50% 50%, var(--surface) 0 6%, var(--line) 6% 7%);
+  border: 10px solid var(--ink); display: grid; place-items: center; box-shadow: 0 0 0 8px var(--gold); }
+.lens span { font-family: var(--head); font-weight: 800; font-size: clamp(2rem, 6vw, 3.2rem); color: var(--bg); z-index: 1; }
+.lens::after { content: ""; position: absolute; top: 16%; left: 20%; width: 14%; height: 14%; border-radius: 50%; background: var(--gold); opacity: .9; }
+
+/* ---------- Sections / pages ---------- */
+section { padding: 72px 0; }
+section.alt { background: var(--surface); border-block: 1px solid var(--line); }
+h2 { font-family: var(--head); font-weight: 800; font-size: clamp(1.9rem, 4.5vw, 2.8rem); margin: 0 0 28px; letter-spacing: -.01em; }
+h3 { font-family: var(--head); }
+.more { color: var(--muted); }
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+.about p { max-width: 62ch; margin: 0 0 16px; }
+.about p:first-child { font-size: 1.15rem; }
+.facts { margin: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 8px 22px; }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { color: var(--muted); font-size: .85rem; }
+.facts dd { margin: 0; font-weight: 600; }
+
+/* Education */
+.timeline { border-left: 3px solid var(--accent); margin: 0; padding: 0 0 0 28px; list-style: none; display: grid; gap: 32px; }
+.timeline li { position: relative; }
+.timeline li::before { content: ""; position: absolute; left: -39px; top: 7px; width: 15px; height: 15px; border-radius: 50%; background: var(--gold); border: 3px solid var(--bg); }
+.alt .timeline li::before { border-color: var(--surface); }
+.timeline h3 { margin: 0 0 2px; font-size: 1.35rem; }
+.timeline .where { color: var(--muted); margin: 0; }
+.timeline .note { margin: 6px 0 0; max-width: 60ch; }
+.tag { display: inline-block; margin-top: 8px; padding: 3px 12px; border-radius: 99px; background: var(--accent); color: var(--accent-ink); font-size: .85rem; font-weight: 600; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; }
+.skill { background: var(--bg); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+.skill h3 { margin: 0 0 6px; font-size: 1.25rem; }
+.skill p { margin: 0; color: var(--muted); font-size: .97rem; }
+.skill:nth-child(odd) { border-top: 6px solid var(--gold); }
+.skill:nth-child(even) { border-top: 6px solid var(--accent); }
+.bars { margin-top: 36px; display: grid; gap: 14px; max-width: 640px; }
+.bar { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: center; font-weight: 600; }
+.track { height: 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 99px; overflow: hidden; }
+.track i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold)); border-radius: 99px; }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; align-items: start; }
+.contact-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.contact-list a { display: flex; flex-direction: column; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; text-decoration: none; }
+.alt .contact-list a { background: var(--bg); }
+.contact-list a:hover { border-color: var(--accent); }
+.contact-list small { color: var(--muted); font-weight: 500; }
+.contact-list strong { font-size: 1.1rem; overflow-wrap: anywhere; }
+form { display: grid; gap: 8px; }
+label { font-weight: 600; font-size: .95rem; }
+input, textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); font: inherit; }
+input:focus, textarea:focus { border-color: var(--gold); outline: none; }
+form .btn { margin-top: 10px; justify-self: start; }
+
+footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); }
+footer p { margin: 0; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .hero { padding: 44px 0 56px; }
+  .hero .wrap, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .lens { width: min(70%, 260px); order: -1; margin: 0; }
+  section { padding: 52px 0; }
+  .bar { grid-template-columns: 90px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform: none; } }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="logo" href="#home">Nisha Kousar</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="wrap">
+      <div>
+        <p class="hello">Welcome to my portfolio</p>
+        <h1>Hi, I’m Nisha Kousar</h1>
+        <p class="role">BS IT student and B. Pharmacy student who loves web development, photography, painting and cooking.</p>
+        <div class="btns">
+          <a class="btn main" href="#about">About me</a>
+          <a class="btn alt" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <div class="lens" role="img" aria-label="Camera lens with the initials NK"><span>NK</span></div>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <div class="about-grid">
+        <div>
+          <p>I’m Nisha Kousar, a student at Women University. I study BS Information Technology and I am also a B. Pharmacy student.</p>
+          <p>I enjoy building web pages with HTML and CSS, and I’m learning more every semester. Away from the screen, I take photographs, paint, and cook.</p>
+          <p>I like to create things that look good and work well, whether that is a web page, a painting or a plate of food.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Name</dt><dd>Nisha Kousar</dd></div>
+          <div><dt>Studying</dt><dd>BS IT, 5th semester</dd></div>
+          <div><dt>Also studying</dt><dd>B. Pharmacy</dd></div>
+          <div><dt>University</dt><dd>Women University</dd></div>
+          <div><dt>Interests</dt><dd>Web development, photography, painting, cooking</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="education">
+    <div class="wrap">
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <h3>BS Information Technology</h3>
+          <p class="where">Women University</p>
+          <p class="note">Learning programming and web development, including HTML and CSS.</p>
+          <span class="tag">5th semester, ongoing</span>
+        </li>
+        <li>
+          <h3>B. Pharmacy</h3>
+          <p class="where">Currently studying</p>
+          <p class="note">Studying pharmacy alongside IT.</p>
+          <span class="tag">Ongoing</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Web development</h3><p>Building pages with HTML and CSS.</p></div>
+        <div class="skill"><h3>Photography</h3><p>Framing, light and capturing moments.</p></div>
+        <div class="skill"><h3>Painting</h3><p>Colour, detail and creative expression.</p></div>
+        <div class="skill"><h3>Cooking</h3><p>Trying new recipes and flavours.</p></div>
+      </div>
+      <!-- Percentage badalne ke liye style="width:..%" change karein -->
+      <div class="bars">
+        <div class="bar"><span>HTML</span><div class="track"><i style="width:80%"></i></div></div>
+        <div class="bar"><span>CSS</span><div class="track"><i style="width:75%"></i></div></div>
+        <div class="bar"><span>Photography</span><div class="track"><i style="width:85%"></i></div></div>
+        <div class="bar"><span>Painting</span><div class="track"><i style="width:80%"></i></div></div>
+        <div class="bar"><span>Cooking</span><div class="track"><i style="width:85%"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <ul class="contact-list">
+          <li><a href="mailto:nishakouser22@gmail.com"><small>Email</small><strong>nishakouser22@gmail.com</strong></a></li>
+          <li><a href="tel:+923207361130"><small>Phone</small><strong>0320 7361130</strong></a></li>
+        </ul>
+        <!-- Ye form submit karne par aapke email app mein email khol deta hai -->
+        <form action="mailto:nishakouser22@gmail.com" method="post" enctype="text/plain">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" required>
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" required></textarea>
+          <button class="btn main" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer><p>© 2026 Nisha Kousar</p></footer>
+
+</body>
+</html>
